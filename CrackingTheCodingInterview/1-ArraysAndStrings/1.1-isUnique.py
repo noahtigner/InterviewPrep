@@ -11,7 +11,7 @@ def isUnique1(string):
 # Alternative
 # time: O(nlogn), space: O(n)
 def isUnique2(string):              # O(nlogn + n) -> O(nlogn)
-    srt = sorted(string).join()     # O(nlogn)
+    srt = "".join(sorted(string))   # O(nlogn)
     prev = srt[0]
     for i in range(1, len(srt)):    # O(n)
         if srt[i] == prev:
@@ -38,3 +38,5 @@ def isUnique4(string):
             if string[i] == string[j]:
                 return False
     return True
+
+print(isUnique2("abc"))
