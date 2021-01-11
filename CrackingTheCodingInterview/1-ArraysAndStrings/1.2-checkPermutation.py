@@ -1,4 +1,4 @@
-# Given two strings, write a method to decidee if one is a permutation of the other.
+# Given two strings, write a method to decide if one is a permutation of the other.
 
 # Initial
 # time: O(nlogn), space: O(n)
@@ -33,4 +33,3 @@ def checkPermutation2(a, b):
             b_hash[b[i]] = 0
 
     return a_hash == b_hash     # O(n)
-    
