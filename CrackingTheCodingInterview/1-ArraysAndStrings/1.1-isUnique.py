@@ -11,7 +11,7 @@ def isUnique1(string):
 def isUnique2(string):
     chars = [0] * 256   # bit array
     for c in string:
-        val = ord(c)
+        val = ord(c)    # char -> int
         if chars[val]:
             return False
         chars[val] = 1
