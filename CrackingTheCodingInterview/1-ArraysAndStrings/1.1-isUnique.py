@@ -1,4 +1,5 @@
 # Simple
+# time: O(n), space: O(n)
 def isUnique1(string):
     seen = []
     for c in string:
@@ -7,6 +8,7 @@ def isUnique1(string):
         seen.append(c)
     return True
 
+# Optimized
 # time: O(n), space: O(1)
 def isUnique2(string):
     chars = [0] * 256   # bit array
@@ -17,7 +19,8 @@ def isUnique2(string):
         chars[val] = 1
     return True
 
-# No Extra Data Structures : O(n^2)
+# No Extra Data Structures
+# time: O(n^2), space: O(1)
 def isUnique3(string):
     for i in range(len(string)):
         for j in range(i+1, len(string)):
