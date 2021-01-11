@@ -8,9 +8,20 @@ def isUnique1(string):
         seen.append(c)
     return True
 
+# Alternative
+# time: O(nlogn), space: O(n)
+def isUnique2(string):              # O(nlogn + n) -> O(nlogn)
+    srt = sorted(string).join()     # O(nlogn)
+    prev = srt[0]
+    for i in range(1, len(srt)):    # O(n)
+        if srt[i] == prev:
+            return False
+        prev = srt[i]
+    return True
+
 # Optimized
 # time: O(n), space: O(1)
-def isUnique2(string):
+def isUnique3(string):
     chars = [0] * 256   # bit array
     for c in string:
         val = ord(c)    # char -> int
@@ -21,7 +32,7 @@ def isUnique2(string):
 
 # No Extra Data Structures
 # time: O(n^2), space: O(1)
-def isUnique3(string):
+def isUnique4(string):
     for i in range(len(string)):
         for j in range(i+1, len(string)):
             if string[i] == string[j]:
