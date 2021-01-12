@@ -11,7 +11,7 @@
 
 # Simple
 # time: O(n), space: O(n)
-def palindromPermutations(string):
+def palindromPermutations1(string):
     counts = {}
     for c in string:
         if c in counts:
@@ -28,14 +28,15 @@ def palindromPermutations(string):
 # Space Optimization
 # time: O(n), space: O(1)
 def palindromPermutation2(string):
-    counts = [0 for c in range(27)]
+    counts = [0 for c in range(26)]
+    print(counts)
     for c in string:
         lower = ord(c.lower()) - 97
-        if lower >= 0 and lower <= 26:
+        if lower >= 0 and lower <= 25:
             counts[lower] += 1
 
     odds = 0
-    for c in range(27):
+    for c in range(26):
         if counts[c] % 2 == 1:
             odds += 1
 
