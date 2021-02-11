@@ -1,5 +1,8 @@
+# LIFO
+# push, pop, peek, is_empty
+
+# Array(list) - based implementation
 class Stack:
-    # LIFO
     def __init__(self):
         self.data = []
 
@@ -18,3 +21,33 @@ class Stack:
             del self.data[-1]
             return item
         return None
+
+# LinkedList - based implementation
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class StackLL:
+    def __init__(self):
+        self.top = None
+
+    def push(self, data):
+        node = Node(data)
+        if self.top:
+            node.next = self.top
+        self.top = node
+
+    def pop(self):
+        if self.top:
+            node = self.top
+            self.top = self.top.next
+            return  node.data
+        return None
+
+    def peek(self):
+        if self.top:
+            print(self.top.data)
+
+    def is_empty(self):
+        return not self.top

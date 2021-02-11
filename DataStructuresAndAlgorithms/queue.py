@@ -1,5 +1,8 @@
+# FIFIO
+# enque, dequeue, peek, is_empty
+
+# Array(list) - based implementation
 class Queue:
-    # FIFO
     def __init__(self):
         self.data = []
 
@@ -18,3 +21,35 @@ class Queue:
             del self.data[0]
             return item
         return None
+
+# LinkedList - based implementation
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class QueueLL:
+    def __init__(self):
+        self.first = None
+        self.last = None
+
+    def enqueue(self, data):
+        node = Node(data)
+        if not self.first:
+            self.first = node
+        if self.last:
+            self.last.next = node
+        self.last = node
+
+    def dequeue(self):
+        if self.first:
+            node = self.first
+            self.first = self.first.next
+            return node.data
+        return None
+
+    def peek(self):
+        if self.first:
+            return self.first.data
+        else:
+            return None
