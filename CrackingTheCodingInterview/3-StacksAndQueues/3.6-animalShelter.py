@@ -119,7 +119,7 @@ class AnimalQueue1:
 
 
 
-shelter = AnimalQueu1()
+shelter = AnimalQueue1()
 shelter.enqueue("dog", "dog1")
 shelter.enqueue("cat", "cat1")
 shelter.enqueue("dog", "dog2")
